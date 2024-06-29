@@ -1,0 +1,44 @@
+---
+
+---
+
+<div id="alert" class="bg-cyan-600 px-4 py-3 text-white">
+  <p id="alert-text" class="text-center text-sm font-medium">
+    Notice: This website is visual only and currently has no active functions,
+    including buttons and URL shortener.
+  </p>
+  <div class="text-center mt-2">
+    <button
+      id="toggle-language"
+      class="bg-white text-cyan-600 px-2 py-1 rounded"
+    >
+      Cambiar a Español
+    </button>
+  </div>
+</div>
+
+<script>
+  // TypeScript TypeScript
+  document
+    .getElementById("toggle-language")
+    ?.addEventListener("click", function () {
+      const alertText = document.getElementById(
+        "alert-text"
+      ) as HTMLParagraphElement | null;
+      const button = document.getElementById(
+        "toggle-language"
+      ) as HTMLButtonElement | null;
+
+      if (alertText && button) {
+        if (button.innerText === "Cambiar a Español") {
+          alertText.innerText =
+            "Aviso: Esta web es solo visual y actualmente no tiene funciones activas, incluyendo los botones y el acortador de URL.";
+          button.innerText = "Change to English";
+        } else {
+          alertText.innerText =
+            "Notice: This website is visual only and currently has no active functions, including buttons and URL shortener.";
+          button.innerText = "Cambiar a Español";
+        }
+      }
+    });
+</script>
