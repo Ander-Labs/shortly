@@ -1,0 +1,41 @@
+---
+const Title: string = "Advanced Statistics";
+const description: string =
+  "Track how your links are performing across the web with our advanced statistics dashboard";
+
+import Card from "./Card.astro";
+---
+
+<section class="bg-zinc-100 flex flex-col justify-center items-center py-32 lg:px-1">
+  <div class="flex flex-col justify-center items-center py-14">
+    <h2 class="text-5xl font-bold p-2 pb-2 text-center">{Title}</h2>
+    <p class="md:w-3/4 px-6 mx-4 text-xl text-center text-gray-400">
+      {description}
+    </p>
+  </div>
+  <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center">
+    <div class="my-4 md:my-0 md:mx-10 lg:mx-0">
+      <Card
+        img="/images/icon-brand-recognition.svg"
+        title="Brand Recognition"
+        body="Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content."
+      />
+    </div>
+    <span class="hidden lg:block bg-cyan-500 w-6 h-3"></span>
+    <div class="md:mt-10 md:pt-12 my-4 md:my-0 md:mx-10 lg:mx-0">
+      <Card
+        img="/images/icon-detailed-records.svg"
+        title="Detailed Records"
+        body="Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
+      />
+    </div>
+    <span class="hidden lg:block bg-cyan-500 w-6 h-3 md:mt-14"></span>
+    <div class="md:mt-16 md:pt-20 md:mx-10 lg:mx-0">
+      <Card
+        img="/images/icon-fully-customizable.svg"
+        title="Fully Customizable"
+        body="Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+      />
+    </div>
+  </div>
+</section>

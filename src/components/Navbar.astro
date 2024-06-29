@@ -1,0 +1,109 @@
+---
+// imports
+import { Image } from "astro:assets";
+
+interface Nav {
+  name: string;
+  link: string;
+}
+
+const navs: Nav[] = [
+  { name: "Features", link: "/" },
+  { name: "Pricing", link: "/" },
+  { name: "Resources", link: "/" },
+];
+
+let open = false;
+const toggleMenu = () => {
+  open = !open;
+  document.getElementById("mobile-menu")?.classList.toggle("hidden", !open);
+  document.getElementById("menu-icon-open")?.classList.toggle("hidden", open);
+  document.getElementById("menu-icon-close")?.classList.toggle("hidden", !open);
+};
+---
+
+<header class="w-full">
+  <div
+    class="flex flex-col max-w-screen-xl px-5 mx-auto lg:items-center lg:justify-between lg:flex-row md:px-6 lg:px-8"
+  >
+    <div class="flex flex-row items-center justify-between lg:justify-start">
+      <div class="md:w-40 md:ml-24">
+        <figure>
+          <Image
+            src="/images/logo.svg"
+            alt="logoNav"
+            width="100"
+            height="200"
+          />
+        </figure>
+      </div>
+      <button
+        class="lg:hidden p-2 my-4 rounded-md focus:outline-none focus:ring"
+        id="menu-toggle"
+      >
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-8 h-8">
+          <path
+            id="menu-icon-open"
+            class={!open ? "" : "hidden"}
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clip-rule="evenodd"></path>
+          <path
+            id="menu-icon-close"
+            class={open ? "" : "hidden"}
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav
+      id="mobile-menu"
+      class={` items-center flex-grow pb-4 lg:pb-0 lg:flex lg:justify-end lg:flex-row lg:pl-2 bg-[#3b3054] text-white lg:bg-white rounded-xl lg:rounded-none ${open ? "flex" : "hidden"}`}
+    >
+      <ul
+        class="flex flex-col lg:flex-wrap lg:flex-row items-center justify-start py-4"
+      >
+        {
+          navs.map((nav) => (
+            <li class="p-4">
+              <a
+                href={nav.link}
+                class=" lg:px-6 py-6 border-b-2 border-transparent leading-[22px] md:px-3 lg:text-gray-500 md:hover:text-cyan-500 md:hover:border-cyan-600  font-bold"
+              >
+                {nav.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div
+        class="flex flex-col lg:flex-wrap lg:flex-row lg:inline-flex items-center gap-2 list-none lg:ml-auto mt-4 lg:mt-0 border-t border-gray-100 pt-6 lg:pt-0"
+      >
+        <button
+          class="items-center block px-10 py-2.5 text-base font-medium text-center lg:text-zinc-600 transition duration-500 ease-in-out transform lg:border-2 lg:border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          >Sign in</button
+        >
+        <button
+          class="items-center block px-10 py-3 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-cyan-400 rounded-full hover:bg-cyan-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >Sign up</button
+        >
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+  });
+</script>

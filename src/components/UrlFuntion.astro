@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="w-full h-20 md:px-20 flex justify-center items-center">
+  <div
+    class="sm:absolute z-0 sm:z-30 w-4/5 p-10 bg-[url('/images/bg-shorten-desktop.svg')] bg-no-repeat bg-center bg-cover flex justify-center items-center bg-[#3b3054] rounded-lg mt-12"
+  >
+    <form
+      class="w-full flex flex-col md:flex-row md:flex-wrap justify-center items-center"
+    >
+      <input
+        type="text"
+        class="w-full sm:w-auto md:w-full max-w-[900px] bg-white p-3 text-base font-semibold outline-0 rounded-lg md:mt-2"
+        placeholder="Shorten a link here..."
+        id=""
+      />
+      <button
+      type="submit"
+        class="w-full sm:w-auto bg-blue-500 p-3 px-12 rounded-lg text-white font-semibold hover:bg-blue-800 transition-colors ml-2 mt-2 md:mt-1"
+      >
+        Shorten It!
+      </button>
+    </form>
+  </div>
+</div>

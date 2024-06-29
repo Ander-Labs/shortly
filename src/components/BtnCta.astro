@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+
+const title: string = "Boost your links today";
+const Btn: string = "Get Started";
+---
+
+<section
+  class="bg-[url('/images/bg-boost-desktop.svg')] w-full h-60 bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center bg-[#232127]"
+>
+  <h3 class="text-white font-bold text-5xl">{title}</h3>
+  <button
+    class="mt-8 inline-block bg-cyan-500 px-12 py-3 font-medium text-white transition hover:bg-cyan-600 focus:outline-none focus:ring  rounded-full md:text-xl"
+  >
+    {Btn}
+  </button>
+</section>

@@ -1,0 +1,210 @@
+---
+import {Image} from "astro:assets";
+
+interface nav {
+  name: string;
+  url: string;
+}
+
+const Features: nav[] = [
+  { name: "Link Shortening", url: "/" },
+  { name: "Branded Links", url: "/" },
+  { name: "Analytics", url: "/" },
+];
+
+const Resources: nav[] = [
+  { name: "Blog", url: "/" },
+  { name: "Developers", url: "/" },
+  { name: "Support", url: "/" },
+];
+
+const Company: nav[] = [
+  { name: " About", url: "/" },
+  { name: "Our Team", url: "/" },
+  { name: "Careers", url: "/" },
+  { name: "Contact", url: "/" },
+];
+
+const YearDate: string = new Date().getFullYear().toString();
+---
+
+<footer class="bg-zinc-900">
+  <div class="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div>
+        <div class="flex justify-center text-teal-600 sm:justify-start">
+          <figure>
+            <Image
+              src="/images/logo-white.svg"
+              alt="logo"
+              width={100}
+              height={200}
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
+      >
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-medium text-gray-50">About Us</p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+            {
+              Features.map((feat) => (
+                <li>
+                  <a
+                    class="text-gray-400 transition hover:text-gray-700/75"
+                    href={feat.url}
+                  >
+                    {feat.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-medium text-gray-50">Resources</p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+            {
+              Resources.map((resou) => (
+                <li>
+                  <a
+                    href={resou.url}
+                    class="text-gray-400 transition hover:text-gray-700/75"
+                  >
+                    {resou.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-medium text-gray-50">Company</p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+            {
+              Company.map((comp) => (
+                <li>
+                  <a
+                    href={comp.url}
+                    class="text-gray-400 transition hover:text-gray-700/75"
+                  >
+                    {comp.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-medium text-gray-50">Contact Us</p>
+
+          <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
+            <li>
+              <a
+                href="/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-zinc-50 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Facebook</span>
+                <Image
+                  src="/images/icon-facebook.svg"
+                  alt="facebook"
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Twitter</span>
+                <Image
+                  src="/images/icon-twitter.svg"
+                  alt="facebook"
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-teal-700 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Pinterest</span>
+                <Image
+                  src="/images/icon-pinterest.svg"
+                  alt="facebook"
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="/"
+                rel="noreferrer"
+                target="_blank"
+                class="text-zinc-50 transition hover:text-teal-700/75"
+              >
+                <span class="sr-only">Instagram</span>
+                <Image
+                  src="/images/icon-instagram.svg"
+                  alt="facebook"
+                  width={20}
+                  height={20}
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-gray-100 pt-6">
+      <div class="text-center sm:flex sm:justify-between sm:text-left">
+        <p class="text-sm text-gray-500">
+          <span class="block sm:inline">All rights reserved.</span>
+
+          <a
+            class="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            href="/"
+          >
+            Terms & Conditions
+          </a>
+
+          <span>&middot;</span>
+
+          <a
+            class="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            href="/"
+          >
+            Privacy Policy
+          </a>
+        </p>
+
+        <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
+          &copy; {YearDate} Shortly
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
